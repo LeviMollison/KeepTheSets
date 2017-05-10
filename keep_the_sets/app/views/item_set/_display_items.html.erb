@@ -1,0 +1,31 @@
+<div class="container-fluid display-items-container">
+    <div class="row">
+        <ul class="nav nav-pills nav-stacked">
+            <li class="nav-link">
+                <label>Defense
+                    <input type="checkbox" checked onclick="filterItems('Defense');">
+                </label>
+            </li>
+            <li class="nav-link">
+                <label>Attack
+                    <input type="checkbox" checked onclick="filterItems('Attack');">
+                </label>
+            </li>
+            <li class="nav-link">
+                <label>Magic
+                    <input type="checkbox" checked onclick="filterItems('Magic');">
+                </label>
+            </li>
+            <li class="nav-link">
+                <label>Misc
+                    <input type="checkbox" checked onclick="filterItems('Misc');">
+                </label>
+            </li>
+        </ul>
+    </div>
+    <% @items.each do |item|%>
+        <div class="row">
+            <%= render(:partial=>'display_item', :locals=>{:item => item}) %>
+        </div>
+    <% end %>
+</div>

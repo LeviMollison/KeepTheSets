@@ -1,0 +1,80 @@
+// Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "bootstrap";
+@import "nav";
+
+body{
+    background-color:aqua;
+}
+
+.sample-border{
+    border: 3px solid black;
+}
+
+.display-item{
+    width: 100%;
+}
+
+.display-item{
+    border: 3px solid black;
+}
+
+.display-items-container{
+    float:left;
+    width:40%;
+}
+
+.inactive{
+    display: none;
+}
+
+.item-display-image{
+    width: 50px;
+    height: 50px;
+}
+
+.item-set-container{
+    width:50%;
+    min-width:500px;
+    float:right;
+}
+
+.item-set-cover{
+    border: 3px solid black;
+}
+
+.item-set-cover-image{
+    max-width: 75px;
+    min-width:30px;
+    width:10%;
+}
+
+.item-set-row-container{
+    width: 60%;
+    min-width:400px;
+    float:right;
+}
+
+.row_name_p{
+    min-height:50px;
+}
+
+.row_row{
+    min-height:40px;
+}
+
+// For the future
+// @media (max-width:430px){
+//     .display-items-container{
+//         width: 40%;
+//     }
+//     
+//     .item-set-container{
+//         width:50%;
+//     }
+//     
+//     .item-set-row-container{
+//         width: 50%;
+//         float:right;
+//     }
+// }
+

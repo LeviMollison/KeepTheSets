@@ -1,0 +1,9 @@
+<div class="item-set-row-container container-fluid">
+    <p class="text-center h4">New Row</p>
+    <div class="row sample-border">
+        <%=link_to(image_tag("plus_sign.png",:class=>"img-fluid center-block item-display-image"), item_set_add_new_row_path(:id => params[:id])) %>
+    </div>
+    <% @rows.each do |row| %>
+        <%= render(:partial => "row", :locals => {:row => row})%>
+    <% end %>
+</div>

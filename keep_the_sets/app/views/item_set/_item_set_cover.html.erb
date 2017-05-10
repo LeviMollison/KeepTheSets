@@ -1,0 +1,9 @@
+<div class="col-md-4 item-set-cover text-center">
+    <% item_set.characters.each do |character|%>
+        <%= image_tag("#{character.name}.png",:class=>"img-fluid center-block item-set-cover-image")%>
+    <% end %>
+    <hr>
+    <p class="set-name">
+        <%= link_to("#{item_set.name}", display_row_item_set_path(:id => item_set.id))%>
+    </p>
+</div>

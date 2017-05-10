@@ -1,0 +1,69 @@
+
+<%= form_for(@item, :url => 'populate_database/', :method=>'post') do |f| %>
+
+<table>
+    <tr>
+        <td><%=f.label(:name)%></td><td><%= f.text_field(:name)%></td>
+    </tr>
+    <tr>
+        <td><%=f.label(:health)%></td><td><%= f.number_field(:health)%></td>
+    </tr>
+    <tr>
+        <td><%=f.label(:magic_resist)%></td><td><%= f.number_field(:magic_resist)%></td>
+    </tr>
+    <tr>
+        <td><%=f.label(:health_regen)%></td><td><%= f.number_field(:health_regen)%></td>
+    </tr>
+    <tr>
+        <td><%=f.label(:armor)%></td><td><%= f.number_field(:armor)%></td>
+    </tr>
+    <tr>
+        <td><%=f.label(:damage)%></td><td><%= f.number_field(:damage)%></td>
+    </tr>
+    <tr>
+        <td><%=f.label(:crit_strike)%></td><td><%= f.number_field(:crit_strike)%></td>
+    </tr>
+    <tr>
+        <td><%=f.label(:attack_speed)%></td><td><%= f.number_field(:attack_speed)%></td>
+    </tr>
+    <tr>
+        <td><%=f.label(:life_steal)%></td><td><%= f.number_field(:life_steal)%></td>
+    </tr>
+    <tr>
+        <td><%=f.label(:spell_vamp)%></td><td><%= f.number_field(:spell_vamp)%></td>
+    </tr>
+    <tr>
+        <td><%=f.label(:ability_power)%></td><td><%= f.number_field(:ability_power)%></td>
+    </tr>
+    <tr>
+        <td><%=f.label(:mana)%></td><td><%= f.number_field(:mana)%></td>
+    </tr>
+    <tr>
+        <td><%=f.label(:mana_regen)%></td><td><%= f.number_field(:mana_regen)%></td>
+    </tr>
+    <tr>
+        <td><%=f.label(:movement_speed)%></td><td><%= f.number_field(:movement_speed)%></td>
+    </tr>
+    <tr>
+        <td><%=f.label(:armor_pen)%></td><td><%= f.number_field(:armor_pen)%></td>
+    </tr>
+    <tr>
+        <td><%=f.label(:cooldown_reduction)%></td><td><%= f.number_field(:cooldown_reduction, :step => 0.1)%></td>
+    </tr>
+    <tr>
+        <td><%=f.label(:magic_pen)%></td><td><%= f.number_field(:magic_pen)%></td>
+    </tr>
+    <tr>
+        <td><%=f.label(:tenacity)%></td><td><%= f.number_field(:tenacity)%></td>
+    </tr>
+    <tr>
+        <td><%=f.label(:isConsumable)%></td><td><%= f.check_box(:isConsumable)%></td>
+    </tr>
+    <tr>
+        <td><%=f.label(:description)%></td><td><%= f.text_field(:health)%></td>
+    </tr>
+    <tr>
+        <td><%= f.submit("Create Item")%></td>
+    </tr>
+</table>
+<% end %>

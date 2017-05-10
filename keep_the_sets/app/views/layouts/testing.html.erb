@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Keep The Sets: <%= @page_title || "Home"%></title>
+        <%= stylesheet_link_tag('testing', :media => 'all') %>
+        <%= javascript_include_tag('application')%>
+    </head>
+    <body>
+        <% if !flash[:notice].blank? %>
+            <div class="notice">
+                <%= flash[:notice] %>
+            </div>
+        <% end %>
+        
+        <%= image_tag('mario.png', :size=>'22x22') %>
+        
+        <!-- <%= link_to('Roar', '#', :onclick=> 'jsRoar("javascript");return true;')%>
+        <%= javascript_tag('alert("are you sure?");') %> -->
+        <!-- <%= javascript_tag do %>
+            alert("are you sure?");
+            // santiize user input for javascript using j(), just the strings
+        <% end %> -->
+        
+        <!-- Before Yield -->
+        <%= yield %>
+        <!-- after yield -->
+    </body>
+</html>

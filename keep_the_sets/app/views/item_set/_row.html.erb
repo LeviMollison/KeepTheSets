@@ -1,0 +1,34 @@
+<%= content_tag(:p, "#{row.name}", ondragover:"allowDrop(event)", ondrop:"removeStoreIn(event)", class:"text-center h4 row_name_p #{row.id}")%>
+<%= text_field(row.name, :post, size:40, class:"row_name_input #{row.id}")%>
+<%= content_tag(:button, "Submit Name", class: "row_name_submit #{row.id}", onclick: "saveName(#{row.id}, '.row_name_input.#{row.id}')")%>
+
+<%= javascript_tag do %>
+var row_id = <%= row.id%>
+$(".row_name_input.<%= row.id%>").hide();
+$(".row_name_submit.<%= row.id%>").hide();
+$('.row_name_p.<%= row.id%>').on('click',function(){
+    $(".row_name_input.<%= row.id%>").show();
+    $(".row_name_submit.<%= row.id%>").show();
+    $(".row_name_p.<%= row.id%>").hide();
+});
+
+$('.row_name_submit.<%= row.id%>').on('click',function(){
+    $(".row_name_input.<%= row.id%>").hide();
+    $(".row_name_submit.<%= row.id%>").hide();
+    if($(".row_name_input.<%= row.id%>").val().length > 0){
+        $(".row_name_p.<%= row.id%>").text( $(".row_name_input.<%= row.id%>").val() );
+    }
+    $(".row_name_p.<%= row.id%>").show();
+    
+});
+<%end%>
+<div class="row sample-border row_row" ondragover="allowDrop(event)" ondrop="drop(event, row_id)">
+    <% @itemsInRow = row.items %>
+    <% @itemsInRow.each do |item| %>
+        <div class="col-md-3">
+            <% @storeIn = StoreIn.getByItemRow({:row_id=> row.id, :item_id=>item.id})[0]%>
+            <%= image_tag("#{item.name}.png",:class=>"img-fluid center-block item-display-image", :draggable=>"true",:ondragstart=>"drag(event, #{@storeIn.id});")%>
+            <p class="text-info"><%= item.name%></p>
+        </div>
+    <% end %>
+</div>

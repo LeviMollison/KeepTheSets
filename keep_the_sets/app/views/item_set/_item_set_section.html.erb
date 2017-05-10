@@ -1,0 +1,19 @@
+<div class="item-set-container container-fluid">
+    <% i = 0; wait_for_close = 0%>
+    <% @item_sets.each do |item_set|%>
+        <% if i % 3 == 0%>
+            <div class="row p-3">
+            <% wait_for_close = i%>    
+        <% end %>
+        <% if i == 0 %>
+            <%= render(:partial=>'new_item_set_cover') %>
+            <%= render(:partial => 'item_set_cover', :locals => {:item_set => item_set})%>
+        <% else %>
+            <%= render(:partial => 'item_set_cover', :locals => {:item_set => item_set})%>
+        <% end %>
+        <% if i - wait_for_close == 2%>
+            </div>
+        <% end %>
+        <% i = i + 1%>
+    <% end %>
+</div>

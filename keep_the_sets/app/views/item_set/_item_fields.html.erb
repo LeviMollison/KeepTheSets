@@ -1,0 +1,9 @@
+<% if item_field %>
+    <% if item_field < 1 %>
+        <p class=""> <%= item_field * 100 %>% Additional <%=field_name%> </p>
+    <% else %>
+        <p class=""> <%= item_field %> <%=field_name%> </p>
+    <% end %>
+    <% field_name.tr!(" ", "_") %>
+    <% @filters = @filters + field_name + " " %>
+<% end %>

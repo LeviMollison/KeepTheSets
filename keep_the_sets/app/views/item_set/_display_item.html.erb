@@ -1,0 +1,32 @@
+<!--  Display an item -->
+<div class="display-item" >
+    <%= image_tag("#{item.name}.png",:class=>"img-fluid center-block item-display-image",:draggable=>"true",:ondragstart=>"drag(event, #{item.id});")%>
+    <p class="lead"> <%= item.name %> </p>
+    <!--  Create the class string, then apply it to this element -->
+    <% @filters = ""  %> 
+    <%= render(:partial=>'item_fields', :locals=>{:item_field => item.health, :field_name=>'Health'})%>
+    <%= render(:partial=>'item_fields', :locals=>{:item_field => item.magic_resist, :field_name=>'Magic Resist'})%>
+    <%= render(:partial=>'item_fields', :locals=>{:item_field => item.health_regen, :field_name=>'Health Regeneration'})%>
+    <%= render(:partial=>'item_fields', :locals=>{:item_field => item.armor, :field_name=>'Armor'})%>
+    <%= render(:partial=>'item_fields', :locals=>{:item_field => item.damage, :field_name=>'Damage'})%>
+    <%= render(:partial=>'item_fields', :locals=>{:item_field => item.crit_strike, :field_name=>'Critical Strike Chance'})%>
+    <%= render(:partial=>'item_fields', :locals=>{:item_field => item.attack_speed, :field_name=>'Attack Speed'})%>
+    <%= render(:partial=>'item_fields', :locals=>{:item_field => item.life_steal, :field_name=>'Life Steal'})%>
+    <%= render(:partial=>'item_fields', :locals=>{:item_field => item.spell_vamp, :field_name=>'Spell Vamp'})%>
+    <%= render(:partial=>'item_fields', :locals=>{:item_field => item.ability_power, :field_name=>'Ability Power'})%>
+    <%= render(:partial=>'item_fields', :locals=>{:item_field => item.cooldown_reduction, :field_name=>'Cooldown Reduction'})%>
+    <%= render(:partial=>'item_fields', :locals=>{:item_field => item.mana, :field_name=>'Mana'})%>
+    <%= render(:partial=>'item_fields', :locals=>{:item_field => item.mana_regen, :field_name=>'Mana Regeneration'})%>
+    <%= render(:partial=>'item_fields', :locals=>{:item_field => item.movement_speed, :field_name=>'Movement Speed'})%>
+    <%= render(:partial=>'item_fields', :locals=>{:item_field => item.armor_pen, :field_name=>'Armor Penetration'})%>
+    <%= render(:partial=>'item_fields', :locals=>{:item_field => item.magic_pen, :field_name=>'Magic Penetration'})%>
+    <%= render(:partial=>'item_fields', :locals=>{:item_field => item.tenacity, :field_name=>'Tenacity'})%>
+    <%if item.description %>
+        <p class="lead"><%=item.description%></p>
+    <% end %>
+    <%= javascript_tag do %>
+        $('.display-item').last().addClass("<%= @filters %>");
+        // add Attack Defense Magic Misc filters 
+        $('.display-item').last().addClass(addGeneralFilter("<%= @filters %>"));
+    <% end %>
+</div>
